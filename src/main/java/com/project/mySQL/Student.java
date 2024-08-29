@@ -20,6 +20,8 @@ public class Student {
     @Column(name = "email")
     private String email;
 
+    public Student(){};
+
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,5 +30,15 @@ public class Student {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
