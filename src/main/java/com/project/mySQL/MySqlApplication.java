@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class MySqlApplication {
 
@@ -15,7 +17,12 @@ public class MySqlApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) { return runner -> {
 //		createStudent(studentDAO);};
-		readStudent(studentDAO);};
+//		readStudent(studentDAO);
+//		queryForStudents(studentDAO);
+//		queryByLastName(studentDAO);
+		queryEmail(studentDAO);
+	};
+
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
@@ -39,4 +46,22 @@ public class MySqlApplication {
 		Student myStudent = studentDAO.findById(2);
 		System.out.println("Found the student: " + myStudent);
 	}
+
+	private void queryByLastName(StudentDAO studentDAO){
+		List<Student> students = studentDAO.findByLastName("kamo");
+		System.out.println(students);
+	}
+
+	private void queryEmail(StudentDAO studentDAO){
+		List<Student> students = studentDAO.findByEmail("com");
+		System.out.println(students);
+	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+	// get list of students
+		List<Student> theStudents = studentDAO.findAll();
+	// display list of students
+		for (Student tempStudent : theStudents) { System.out.println(tempStudent);}
+	}
+
 }
