@@ -20,6 +20,9 @@ public class Student {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     public Student(){};
 
     public Student(String firstName, String lastName, String email) {
@@ -32,6 +35,34 @@ public class Student {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -39,6 +70,7 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }
